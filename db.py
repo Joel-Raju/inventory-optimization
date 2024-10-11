@@ -2,16 +2,13 @@ from sqlalchemy import create_engine, Column, Integer, String, Float, ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 
-# Database connection URL (replace with your actual database URL)
 DATABASE_URL = "postgres://postgres:123456@127.0.0.1:5432/test"
 
 # Create a SQLAlchemy engine
 engine = create_engine(DATABASE_URL)
 
-# Create a base class for declarative models
 Base = declarative_base()
 
-# Define the models
 class Product(Base):
     __tablename__ = "products"
 
