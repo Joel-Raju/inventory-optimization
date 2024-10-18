@@ -2,19 +2,18 @@ pipeline {
     agent any
 
     environment {
-        // Set your environment variables here
-        APP_NAME = "my-flask-app"
+        APP_NAME = "inventory-optimization"
         VIRTUAL_ENV = "venv"
-        PG_HOST = "your_postgres_host"
-        PG_DATABASE = "your_database_name"
-        PG_USER = "your_database_user"
-        PG_PASSWORD = "your_database_password"
+        PG_HOST = "localhost" 
+        PG_DATABASE = "inventory_optimization"
+        PG_USER = "postgres"
+        PG_PASSWORD = "postgres"
     }
 
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/your-repo/your-flask-app.git'
+                git 'https://github.com/Joel-Raju/inventory-optimization.git'
             }
         }
 
