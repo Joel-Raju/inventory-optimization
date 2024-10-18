@@ -32,14 +32,13 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                // Assuming you're using a WSGI server like Gunicorn
+                
                 sh '$VIRTUAL_ENV/bin/gunicorn --workers 3 --bind 0.0.0.0:8000 app:app &'
             }
         }
 
         stage('Database Migrations') {
             steps {
-                // Assuming you're using Flask-Migrate
                 sh '$VIRTUAL_ENV/bin/flask db upgrade'
             }
         }
@@ -47,7 +46,6 @@ pipeline {
 
     post {
         always {
-            // Clean up the workspace
             cleanWs()
         }
     }
